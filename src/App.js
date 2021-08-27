@@ -1,32 +1,31 @@
 import React, { useState } from 'react'
 import { useForm } from './hooks/useForm'
+import carRed from './res/carRed.jpeg';
 
 export const App = () => {
   const [correct, setCorrect] = useState(false);
-  const [formValues, handleInputChange, reset] = useForm({
+  const [formValues, handleInputChange] = useForm({
     password: '',
   })
   const password = formValues.password;
-  const [gif, setGif] = useState("https://media0.giphy.com/media/13Ytgot8tO2pfa/giphy.gif?cid=ecf05e47cvwkj1cg11eccc06f02xg6cvc4407zpb5j4mj4ap&rid=giphy.gif&ct=g")
-  const [text, setText] = useState("¡Aquí esta tu regalo!")
   const handleClic = (e) => {
     e.preventDefault()
-    if (password === "It's brutal out there".trim()) {
+    if (password === "28".trim()) {
       setCorrect(true);
-      setTimeout(() => {
-        setText("Aquí estará mañana")
-        setGif("https://media0.giphy.com/media/6qmOIwxEJnt96/giphy.gif?cid=ecf05e47vpezl7w79mp8a88x1eygie27t9vasy1sdtdxb4nj&rid=giphy.gif&ct=g");
-      }, 8000);
+
+
     }
   }
 
   return (
-    <>
+    <div>
       <div className="App">
         {!correct &&
           <div>
             <h1 className="animate__animated animate__fadeInLeft ">Hola Violeta...</h1>
-            <p className="animate__animated animate__fadeInLeftBig " style={{ textAlign: "center" }}>Necesitas una contraseña</p>
+            <p className="animate__animated animate__fadeInLeftBig " style={{ textAlign: "center" }}>Ya no creo que sea la misma contraseña</p>
+            <p className="animate__animated animate__fadeInLeftBig " style={{ textAlign: "center" }}>Lamentablemente solo tienes un intento esta vez</p>
+            <p className="animate__animated animate__fadeInLeftBig " style={{ textAlign: "center" }}>Si tuvieras que elegir un numero entre el 0 y 5 millones ¿Cuál elegirías?</p>
             <div className="input-pass input-group mb-3"></div>
             <input
               className="form-control animate__animated animate__fadeInUpBig "
@@ -45,18 +44,21 @@ export const App = () => {
         }
         {
           correct && <div className="giftCard animate__animated animate__fadeInDownBig">
-            <div className="giftCard-content">
-              <h1>{text}</h1>
-            </div>
-            <div className="gifCardIMG">
-              <img src={gif} alt="giftCard" />
-            </div>
+            <img style={{maxWidth:"30%"}} src={carRed} alt="Carro de Diego" />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <p>Carro de Diego</p>
+
           </div>
         }
       </div>
 
 
-    </>
+    </div>
 
 
 
